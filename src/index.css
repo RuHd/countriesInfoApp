@@ -41,7 +41,6 @@ input, select {
 }
 
 body {
-  border: 2px solid red;
   max-width: 100vw;
   min-height: 100vh;
   background-color: #D0D9D4;

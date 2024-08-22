@@ -7,13 +7,13 @@ import { IoMdClose } from "react-icons/io";
 const CountryPage = ({id, handleClickCard}) => {
     
     const countries = useContext(MyContext)
-    const [countryInfo, setcountryInfo] = useState(countries.countriesData.find((country,i) => i == id ? country : null))
+    const [countryInfo, setcountryInfo] = useState(countries.countriesData.find((country,i) => i === id ? country : null))
     const borders = countryInfo.borders !== undefined ? countryInfo.borders.map(border => border) : undefined
 
    
     // Function to go to the selected border country page
     const borderClicked = (countryName) => {
-        setcountryInfo(countries.countriesData.find(country => country.name.common == countryName ? country : null))
+        setcountryInfo(countries.countriesData.find(country => country.name.common === countryName ? country : null))
     }
     
     const getLanguages = () => {
@@ -35,7 +35,7 @@ const CountryPage = ({id, handleClickCard}) => {
         <div className='country--name-container'>
             
             <div className= {`flag--img ${countryInfo.name.common !== "Nepal" ? "flag--img" : ""}` }>
-                <img src={countryInfo.flags.png} />
+                <img src={countryInfo.flags.png} alt='flag' />
             </div>
             <h2>{countryInfo.name.common}</h2>
         </div>
@@ -49,10 +49,10 @@ const CountryPage = ({id, handleClickCard}) => {
                 <li>
                     <h3>Capital</h3>
                     <div>
-                        { countryInfo.capital !== undefined && countryInfo.capital.map((capital) => {
+                        { countryInfo.capital !== undefined && countryInfo.capital.map((capital,i) => {
                         
                             return (
-                                <h4>{capital !== undefined ? capital : "None"} </h4>
+                                <h4 key={i}>{capital !== undefined ? capital : "None"} </h4>
                             )
                         })}
                     </div>
@@ -60,9 +60,9 @@ const CountryPage = ({id, handleClickCard}) => {
                 <li>
                     <h3>Language</h3>
                     <ul>
-                        {langs.map(language => {
+                        {langs.map((language, i) => {
                             return (
-                                <li>
+                                <li key={i}>
                                     <h4>{language}</h4>
                                 </li>
                             )
@@ -79,11 +79,11 @@ const CountryPage = ({id, handleClickCard}) => {
         <div className='borders--container'>
                 <h3>Borders</h3>
                 <ul className='borders--list'>
-                    {borders !== undefined && borders.map(border => {
+                    {borders !== undefined && borders.map((border, i) => {
                         return (
-                            <li>
-                                <button onClick = {() => borderClicked(countries.countriesData.find(country => country.cca3 == border).name.common)} className='border--btn'>
-                                    <img src={countries.countriesData.find(country => country.cca3 == border).flags.png} alt={countries.countriesData.find(country => country.cca3 == border).name.common}/>
+                            <li key={i}>
+                                <button onClick = {() => borderClicked(countries.countriesData.find(country => country.cca3 === border).name.common)} className='border--btn'>
+                                    <img src={countries.countriesData.find(country => country.cca3 === border).flags.png} alt={countries.countriesData.find(country => country.cca3 === border).name.common}/>
                                 </button>
                             </li>
                         )
