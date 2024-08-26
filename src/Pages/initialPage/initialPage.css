@@ -42,20 +42,16 @@
         margin-top: 50px;
         height: auto;
         border: none;
-        max-width: 100vw;
-        scale: .8;
+        scale: .65;
     }
 
-    .heroPagei img {
-        top: -1000px;
-        
-    }
+
 
     .home--title h1 {
         font-size: 1.5em;
     }
 
     .home--title h2 {
-        transform: translate(60px,-10px);
+        transform: translate(45px,-10px);
     }
 }

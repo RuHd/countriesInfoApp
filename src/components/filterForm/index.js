@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './filterSection.css'
 
 
@@ -13,7 +13,6 @@ const FilterSections = ({setFilteredCountry, handleFilterContinent, handleChosen
                 </label> 
             </div>          
             <div className='filters--option'>
-                <h2>Filter By: </h2>
                 <div>
                     <label>
                         <span>Continent</span>
@@ -29,10 +28,10 @@ const FilterSections = ({setFilteredCountry, handleFilterContinent, handleChosen
                         </select>
                     </label>
 
-                    <label>
+                    {/* <label>
                         <span>Language</span>
                         <input type="text" placeholder='Search By Language' name='language' onChange={(e) => handleChosenLanguage(e.target.value)}/>
-                    </label>
+                    </label> */}
 
                 </div>
             </div>

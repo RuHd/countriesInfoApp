@@ -1,4 +1,5 @@
 .countries--section {
+    max-width: 100%;
     margin-top: 20px ;
 }
 
@@ -37,7 +38,6 @@
 
     .cardCountry h3 {
         width: 100%;
-
     }
 
 
@@ -79,4 +79,13 @@
         width: 80%;
         height: 80%;
         object-fit: contain;
+    }
+
+    @media screen and (max-width: 720px) {
+        .countries--section h2 { 
+            text-align: left;
+            border: 2px solid red;
+            font-size: 1.3em;
+            max-width: 100%;
+         }
     }

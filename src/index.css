@@ -46,10 +46,7 @@ body {
   background-color: #D0D9D4;
 }
 
-.App {
-  width: inherit;
-  height: inherit;
-}
+
 
 @media screen and (max-width: 720px) {
 
