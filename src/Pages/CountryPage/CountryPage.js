@@ -88,7 +88,7 @@ const CountryPage = ({id, handleClickCard}) => {
                             </li>
                         )
                     })}
-                    {borders == undefined && <h4>None</h4>}
+                    {borders === undefined && <h4>None</h4>}
                 </ul>
         </div>
 
