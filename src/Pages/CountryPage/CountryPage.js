@@ -8,13 +8,6 @@ const CountryPage = ({id, handleClickCard}) => {
     
     const countries = useContext(MyContext)
     const [countryInfo, setcountryInfo] = useState(countries.countriesData.find((country,i) => i === id ? country : null))
-    const borders = countryInfo.borders !== undefined ? countryInfo.borders.map(border => border) : undefined
-
-   
-    // Function to go to the selected border country page
-    const borderClicked = (countryName) => {
-        setcountryInfo(countries.countriesData.find(country => country.name.common === countryName ? country : null))
-    }
     
     const getLanguages = () => {
         let lgsGroup = []
@@ -71,25 +64,9 @@ const CountryPage = ({id, handleClickCard}) => {
                 </li>
                 <li>
                     <h3>Continent</h3>
-                    <h4>{ countryInfo.continents[0]}</h4>
+                    <h4>{ countryInfo.region}</h4>
                 </li>
             </ul>
-        </div>
-
-        <div className='borders--container'>
-                <h3>Borders</h3>
-                <ul className='borders--list'>
-                    {borders !== undefined && borders.map((border, i) => {
-                        return (
-                            <li key={i}>
-                                <button onClick = {() => borderClicked(countries.countriesData.find(country => country.cca3 === border).name.common)} className='border--btn'>
-                                    <img src={countries.countriesData.find(country => country.cca3 === border).flags.png} alt={countries.countriesData.find(country => country.cca3 === border).name.common}/>
-                                </button>
-                            </li>
-                        )
-                    })}
-                    {borders === undefined && <h4>None</h4>}
-                </ul>
         </div>
 
     </section>

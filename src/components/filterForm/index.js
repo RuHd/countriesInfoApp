@@ -1,9 +1,8 @@
-import React from 'react'
 import './filterSection.css'
 
 
-const FilterSections = ({setFilteredCountry, handleFilterContinent, handleChosenLanguage}) => {
-    
+const FilterSections = ({setFilteredCountry, handleFilterContinent}) => {
+
   return (
     <section className='filter--section'>
         <form>
@@ -19,19 +18,13 @@ const FilterSections = ({setFilteredCountry, handleFilterContinent, handleChosen
                         <select defaultValue="Any" name='continents' onChange={(e) => handleFilterContinent(e.target.value)}>
                             <option value="Any">Any</option>
                             <option value="Asia">Asia</option>
-                            <option value="North America">North America</option>
-                            <option value="South America">South America</option>
+                            <option value="Americas">Americas</option>
                             <option value="Europe">Europe</option>
                             <option value="Oceania">Oceania</option>
-                            <option value="Antarctica">Antarctica</option>
+                            <option value="Antarctic">Antarctic</option>
                             <option value="Africa">Africa</option>
                         </select>
                     </label>
-
-                    {/* <label>
-                        <span>Language</span>
-                        <input type="text" placeholder='Search By Language' name='language' onChange={(e) => handleChosenLanguage(e.target.value)}/>
-                    </label> */}
 
                 </div>
             </div>

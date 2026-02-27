@@ -15,6 +15,7 @@ function App() {
         const response = await fetch(`${URL}`)
         const data = await response.json()
 
+
         setCountriesData(() => data)
 
       }
@@ -27,7 +28,7 @@ function App() {
   }
       getApiData()
       
-    
+      console.log(countriesData)
     return () => {}
   }, [])
   

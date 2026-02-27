@@ -22,7 +22,7 @@ const ListCountries = ({handleClickCard,filteredCountry, chosenContinent}) => {
     return (
       countries.countriesData.map((country,id) => {
         if (chosenContinent !== "Any") {
-          if (country.name.common.toLowerCase().includes(filteredCountry.toLowerCase()) && country.continents[0] === chosenContinent) {
+          if (country.name.common.toLowerCase().includes(filteredCountry.toLowerCase()) && country.region === chosenContinent) {
             return (
               <CardCountry
                 key={id}
@@ -51,7 +51,7 @@ const ListCountries = ({handleClickCard,filteredCountry, chosenContinent}) => {
   } else if (chosenContinent !== "Any") {
     return(
       countries.countriesData.map((country,id) => {
-        if (country.continents[0] === chosenContinent) {
+        if (country.region === chosenContinent) {
           return (
             <CardCountry
               key={id}

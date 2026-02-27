@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './initialPage.css'
 import worldLogo from '../../worldLogo.png'
 import FilterSections from '../../components/filterForm'
@@ -22,7 +22,6 @@ const HomePage = () => {
   // Get Continent from Drop Menu filter
   const handleFilterContinent = (continent) => {
       setChosenContinent(continent)
-      console.log(chosenContinent)
   }
 
 
