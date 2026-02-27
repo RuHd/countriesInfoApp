@@ -9,13 +9,21 @@ function App() {
   useMemo(() => setCountriesData, [countriesData])
 
   useEffect(() => {
-    const URL = "https://restcountries.com/v3.1/all"
+    const URL = "https://restcountries.com/v3.1/all?fields=name,capital,flags,population,region,subregion,languages,currencies"
     const getApiData = async () => {
-      const response = await fetch(`${URL}`)
-      const data = await response.json()
+      try {
+        const response = await fetch(`${URL}`)
+        const data = await response.json()
 
-      setCountriesData(() => data)
-  
+        setCountriesData(() => data)
+
+      }
+
+      catch (error) {
+
+        console.log(error)
+      } 
+
   }
       getApiData()
       
