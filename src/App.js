@@ -1,5 +1,5 @@
 import './index.css'
-import {useState, useEffect, useMemo} from 'react';
+import {useState, useEffect} from 'react';
 import { MyContext } from './MyContext';
 import HomePage from './Pages/initialPage/initialPage';
 
