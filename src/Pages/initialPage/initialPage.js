@@ -32,7 +32,7 @@ const HomePage = () => {
       {countrySelected && <CountryPage id = {selectedCountryID} handleClickCard = {handleClickCard}/>}
       <section className='heroPage'>
         <div className='home--title'>
-          <img src={worldLogo}/>
+          <img src={worldLogo} alt='World Logo'/>
           <h1>World Info</h1>
           <h2>Made By Ruan Mesquita</h2>
         </div> 

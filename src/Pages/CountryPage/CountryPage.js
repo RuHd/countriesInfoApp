@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext } from 'react'
 import './CountryPage.css'
 import { MyContext } from '../../MyContext'
 import { IoMdClose } from "react-icons/io";
@@ -7,7 +7,7 @@ import { IoMdClose } from "react-icons/io";
 const CountryPage = ({id, handleClickCard}) => {
     
     const countries = useContext(MyContext)
-    const [countryInfo, setcountryInfo] = useState(countries.countriesData.find((country,i) => i === id ? country : null))
+    const countryInfo = countries.countriesData.find((country,i) => i === id ? country : null)
     
     const getLanguages = () => {
         let lgsGroup = []

@@ -5,9 +5,6 @@ import HomePage from './Pages/initialPage/initialPage';
 
 function App() {
   const [countriesData, setCountriesData] = useState([])
-
-  useMemo(() => setCountriesData, [countriesData])
-
   useEffect(() => {
     const URL = "https://restcountries.com/v3.1/all?fields=name,capital,flags,population,region,subregion,languages,currencies"
     const getApiData = async () => {
@@ -28,9 +25,8 @@ function App() {
   }
       getApiData()
       
-      console.log(countriesData)
-    return () => {}
-  }, [])
+      return () => {}
+  }, [countriesData])
   
   return (
     <MyContext.Provider value={{countriesData, setCountriesData}}>
