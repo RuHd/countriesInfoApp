@@ -1,6 +1,7 @@
 import React, { useContext} from 'react'
 import './countriesSection.css'
 import { MyContext } from '../../MyContext'
+import { filteredCountryList } from '../../utils'
 
 const CardCountry = ({countryName, flag, handleClickCard,id }) => {
  
@@ -16,68 +17,18 @@ const CardCountry = ({countryName, flag, handleClickCard,id }) => {
 
 const ListCountries = ({handleClickCard,filteredCountry, chosenContinent}) => {
   const countries = useContext(MyContext)
+  const filteredCountries = filteredCountryList(countries, filteredCountry, chosenContinent)
 
   // Return countries based on search country input
-  if (filteredCountry.length >= 1) {
-    return (
-      countries.countriesData.map((country,id) => {
-        if (chosenContinent !== "Any") {
-          if (country.name.common.toLowerCase().includes(filteredCountry.toLowerCase()) && country.region === chosenContinent) {
-            return (
-              <CardCountry
-                key={id}
-                countryName={country.name.common}
-                flag = {country.flags.png}
-                id={id}
-                handleClickCard={handleClickCard}
-              />
-            )
-          } 
-        } else if (country.name.common.toLowerCase().includes(filteredCountry.toLowerCase()) )
+  return (
+    <>
+      {filteredCountries.map((country, i) => {
         return (
-          <CardCountry
-            key={id}
-            countryName={country.name.common}
-            flag = {country.flags.png}
-            id={id}
-            handleClickCard={handleClickCard}
-          />
+          <CardCountry key={i} countryName={country.name.common} flag={country.flags.png} handleClickCard={handleClickCard} id={countries.countriesData.indexOf(country)}/>
         )
-
-        return ''
-      })
-    )
-    // Return Countries List based on Continent
-  } else if (chosenContinent !== "Any") {
-    return(
-      countries.countriesData.map((country,id) => {
-        if (country.region === chosenContinent) {
-          return (
-            <CardCountry
-              key={id}
-              countryName={country.name.common}
-              flag = {country.flags.png}
-              id={id}
-              handleClickCard={handleClickCard}
-            />
-          )
-        }
-        return ""
-      })
-    )
-  }  return (
-      countries.countriesData.map((country,id) => {
-        return (
-          <CardCountry
-            key={id}
-            countryName={country.name.common}
-            flag = {country.flags.png}
-            id={id}
-            handleClickCard={handleClickCard}
-          />
-        )
-      })
-    )
+      })}
+    </>
+  )
 }
 
 
