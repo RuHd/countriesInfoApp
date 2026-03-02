@@ -4,8 +4,9 @@ import worldLogo from '../../worldLogo.png'
 import FilterSections from '../../components/filterForm'
 import CountriesSection from '../../components/countriesSection/countriesSection'
 import CountryPage from '../CountryPage/CountryPage'
+import Loading from '../../components/Loading'
 
-const HomePage = () => {
+const HomePage = ({isLoading}) => {
 
   const [countrySelected, setCountrySelected] = useState(false)
   const [selectedCountryID, setSelectedCountryID] = useState(0)
@@ -38,7 +39,7 @@ const HomePage = () => {
         </div> 
       </section>
       <FilterSections filteredCountry = {filteredCountry} setFilteredCountry = {setFilteredCountry} handleFilterContinent = {handleFilterContinent} />
-      <CountriesSection handleClickCard = {handleClickCard} filteredCountry = {filteredCountry} chosenContinent = {chosenContinent}/>
+      { isLoading ? <Loading/> : <CountriesSection handleClickCard = {handleClickCard} filteredCountry = {filteredCountry} chosenContinent = {chosenContinent}/>}
     </main>
   )
 }
